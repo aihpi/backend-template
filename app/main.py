@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from settings import backend_settings
+from .settings import backend_settings
 
 app = FastAPI(title="Backend template API")
 
@@ -14,10 +14,13 @@ app.add_middleware(
 )
 
 
-if __name__ == "__main__":
+def main():
     uvicorn.run(
-        "main:app",
+        "app.main:app",
         host=backend_settings.HOST,
         port=backend_settings.PORT,
         reload=backend_settings.DEBUG_MODE
     )
+
+if __name__ == "__main__":
+    main()
