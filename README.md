@@ -79,6 +79,7 @@ uv sync --no-dev         # Sync only main dependencies
 uv sync --extra <group>  # Include optional group dependencies
 ```
 
+## References
 
 [^syncing]: [https://docs.astral.sh/uv/concepts/projects/sync/](https://docs.astral.sh/uv/concepts/projects/sync/)
 [^running_fastapi]: [https://fastapi.tiangolo.com/tutorial/first-steps/#run-it](https://fastapi.tiangolo.com/tutorial/first-steps/#run-it)
