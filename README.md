@@ -40,3 +40,25 @@ If you want to configure the port and/or host:
 HOST=0.0.0.0 PORT=8080 app 
 ```
 
+# Swagger 
+
+The swagger documentation is available under http://localhost:8000/docs
+
+It allows you to send requests and view the responses using the default UI from fastapi.
+
+# Development
+
+Activating the virtual environment:
+
+```
+. .venv/bin/activate
+```
+
+Adding dependencies:
+
+```
+uv add <dependency1> <dependency2> <dependency3>
+```
+
+
+
