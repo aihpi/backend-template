@@ -16,7 +16,7 @@ git clone https://github.com/aihpi/backend-template.git
 cd backend-template
 ```
 
-Sync the environment
+Sync the environment[^syncing]
 
 ```bash
 uv sync # Create the .venv folder and sync dependencies
@@ -29,7 +29,7 @@ source .venv/bin/activate    # Linux/macOS
 # .venv\Scripts\activate     # Windows
 ```
 
-## Running the backend
+## Running the backend[^running_fastapi]
 
 To start the backend, run:
 
@@ -43,7 +43,7 @@ If you want to configure the port and/or host:
 HOST=0.0.0.0 PORT=8080 app
 ```
 
-## Swagger
+## Swagger[^swagger]
 
 The swagger documentation is available under [http://localhost:8000/docs](http://localhost:8000/docs)
 
@@ -51,32 +51,36 @@ It allows you to send requests and view the responses using the default UI from 
 
 ## Development
 
-### Managing dependencies [^dependencies]
+### Managing dependencies[^dependencies]
 
 - Adding dependencies:
 
 ```bash
-uv add <dependency1> <dependency2> <dependency3> # In the .venv environment
-uv add --dev <dependency1> <dependency2> <dependency3> # As dev dependencies
-uv add <dependency1> <dependency2> <dependency3> --optional <group_name> # In an optional group
+uv add <package>                      # Add to main dependencies
+uv add --dev <package>                # Add to dev dependencies
+uv add <package> --optional <group>   # Add to optional dependency group
 ```
 
 - Removing dependencies:
 
 ```bash
-uv remove <dependency1> <dependency2> <dependency3> # From the .venv environment
-uv remove --dev <dependency1> <dependency2> <dependency3> # From dev dependencies
-uv remove <dependency1> <dependency2> <dependency3> --optional <group_name> # From an optional group
+uv remove <package>                      # Remove from main dependencies
+uv remove --dev <package>                # Remove from dev dependencies
+uv remove <package> --optional <group>   # Remove from optional group
 ```
 
 - Syncing the environment
 
 ```bash
-uv sync # Sync the main .venv environment with dev dependencies
-uv sync --dev # Similar to the previous
-uv sync --only-dev # Sync only the dev dependencies
-uv sync --no-dev # Sync the main .venv environment with no dev dependencies
-uv sync --extra <group_name> # Like uv sync plus the the dependencies from an optional group
+uv sync                  # Sync all (main + dev dependencies)
+uv sync --dev            # Same as above (explicit)
+uv sync --only-dev       # Sync only dev dependencies
+uv sync --no-dev         # Sync only main dependencies
+uv sync --extra <group>  # Include optional group dependencies
 ```
 
+
+[^syncing]: [https://docs.astral.sh/uv/concepts/projects/sync/](https://docs.astral.sh/uv/concepts/projects/sync/)
+[^running_fastapi]: [https://fastapi.tiangolo.com/tutorial/first-steps/#run-it](https://fastapi.tiangolo.com/tutorial/first-steps/#run-it)
+[^swagger]: [https://fastapi.tiangolo.com/how-to/configure-swagger-ui/](https://fastapi.tiangolo.com/how-to/configure-swagger-ui/)
 [^dependencies]: [https://docs.astral.sh/uv/concepts/projects/dependencies/](https://docs.astral.sh/uv/concepts/projects/dependencies/)
